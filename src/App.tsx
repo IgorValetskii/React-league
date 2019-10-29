@@ -3,6 +3,7 @@ import './App.css';
 import Users from "./components/users";
 import {BrowserRouter, Route, Link, BrowserRouterProps} from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory"
+import UserForm from "./components/UserForm";
 
 const history = createBrowserHistory();
 
@@ -20,7 +21,7 @@ class Main extends React.Component {
                     <hr/>
 
                     <Route exact path="/users" component={Users}/>
-                    <Route path="/users/add" component={Users}/>
+                    <Route path="/users/add" component={UserForm}/>
                 </div>
             </BrowserRouter>
         );

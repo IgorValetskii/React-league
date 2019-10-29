@@ -2,32 +2,62 @@ import React from 'react';
 import UsersData from "../data/UsersData";
 import {User} from "../interfaces/user";
 import UserItem from "../data/UserDataItem";
-
+import {BrowserRouter, Route, Link, BrowserRouterProps} from "react-router-dom";
 interface Props {
-
 }
 
-const UserList = () => {
-    function ShowForm() {
-       alert('1')
+class UserList extends React.Component<any>{
+    constructor(props:any){
+        super(props)
     }
 
-    return (
-        <div>
-         <ul className="list-group">
-             Users
-             {UsersData.map(user => (
-                <UserItem key={user.id}
-                    user={{name: user.name, surname: user.surname, id: user.id}}/>
-             ))}
-         </ul>
 
-            <button onClick={()=>ShowForm()}>Add User</button>
-        </div>
+    render(){
+        return (
+
+            <div>
+                <ul className="list-group">
+                    Users
+                    {UsersData.map(user => (
+                        <UserItem key={user.id}
+                                  user={{name: user.name, surname: user.surname, username: user.username, id: user.id}}/>
+                    ))}
+                </ul>
+
+                <Link to="/users/add">
+                    <button >Add User</button>
+            </Link>
+            </div>
+
         );
+    }
 }
 
+
+
 export default UserList
+
+// const UserList = () => {
+//     function ShowForm() {
+//         alert('1')
+//     }
+//
+//     return (
+//         <div>
+//             <ul className="list-group">
+//                 Users
+//                 {UsersData.map(user => (
+//                     <UserItem key={user.id}
+//                               user={{name: user.name, surname: user.surname, username: user.username, id: user.id}}/>
+//                 ))}
+//             </ul>
+//
+//             <button onClick={()=>ShowForm()}>Add User</button>
+//         </div>
+//     );
+// }
+
+
 // interface Props {
 //     value : any
 // }
