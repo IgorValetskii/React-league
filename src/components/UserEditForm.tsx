@@ -1,24 +1,26 @@
 import React from "react";
-import {Form, Input} from '@rocketseat/unform';
-import UsersData from "../data/UsersData";
+import {Form, Input} from "@rocketseat/unform";
 import {Link} from "react-router-dom";
 
-
-class UserForm extends React.Component <any> {
+class UserEditForm extends React.Component<any> {
     constructor(props: any) {
         super(props);
 
     }
 
-    handleSubmit(data: any) {
-        const id = Math.floor(Math.random() * 1000);
-        data.id = id;
-        const newUser = UsersData.push(data);
+
+    handleSubmit() {
+
     }
 
     render() {
+        const initialData = {
+            name: 'Vasya',
+            surname: 'Pupkin',
+            username: 'Pup'
+        }
         return (
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit} initialData={initialData}>
                 <p>Firstname:</p>
                 <Input name="name"/>
                 <p>Surname:</p>
@@ -26,7 +28,7 @@ class UserForm extends React.Component <any> {
                 <p>Username:</p>
                 <Input name="username"/>
 
-                <button type="submit">Create User</button>
+                <button type="submit">Edit User</button>
                 <Link to="/users">
                     <button>Return</button>
                 </Link>
@@ -35,5 +37,4 @@ class UserForm extends React.Component <any> {
     }
 }
 
-export default UserForm;
-
+export default UserEditForm

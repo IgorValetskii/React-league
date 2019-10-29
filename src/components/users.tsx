@@ -1,8 +1,7 @@
 import React from 'react';
 import UsersData from "../data/UsersData";
-import {User} from "../interfaces/user";
 import UserItem from "../data/UserDataItem";
-import {BrowserRouter, Route, Link, BrowserRouterProps} from "react-router-dom";
+import {Link} from "react-router-dom";
 interface Props {
 }
 

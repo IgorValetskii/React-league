@@ -1,17 +1,19 @@
 import React from 'react';
 import './App.css';
 import Users from "./components/users";
-import {BrowserRouter, Route, Link, BrowserRouterProps} from "react-router-dom";
+import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory"
 import UserForm from "./components/UserForm";
+import UserEditForm from "./components/UserEditForm";
 
 const history = createBrowserHistory();
 
 
 class Main extends React.Component {
-    render(){
-        return(
-            <BrowserRouter >
+    render() {
+        return (
+
+            <BrowserRouter>
                 <div>
                     <h1>Welcome to Superleague!</h1>
                     <ul>
@@ -19,14 +21,16 @@ class Main extends React.Component {
                         <li><Link to="/contacts">Leagues</Link></li>
                     </ul>
                     <hr/>
-
-                    <Route exact path="/users" component={Users}/>
-                    <Route path="/users/add" component={UserForm}/>
+                    <Switch>
+                        <Route path="/users/add" exact component={UserForm}/>
+                        <Route path="/users/:id" exact component={UserEditForm}/>
+                        <Route path="/users" exact component={Users}/>
+                    </Switch>
                 </div>
             </BrowserRouter>
         );
     }
-  }
+}
 
 
 export default Main;
