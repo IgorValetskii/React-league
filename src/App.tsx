@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Users from "./components/users";
+import Users from "./components/UserList";
 import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory"
 import UserForm from "./components/UserForm";
@@ -9,7 +9,7 @@ import UserEditForm from "./components/UserEditForm";
 const history = createBrowserHistory();
 
 
-class Main extends React.Component {
+class App extends React.Component {
     render() {
         return (
 
@@ -33,4 +33,4 @@ class Main extends React.Component {
 }
 
 
-export default Main;
+export default App;

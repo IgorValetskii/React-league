@@ -1,23 +1,22 @@
 import React from 'react';
 import UsersData from "../data/UsersData";
-import UserItem from "../data/UserDataItem";
+import UserItem from "./UserItem";
 import {Link} from "react-router-dom";
-interface Props {
-}
 
 class UserList extends React.Component<any>{
     constructor(props:any){
         super(props)
     }
 
-
     render(){
+        console.log(this.props);
         return (
 
             <div>
                 <ul className="list-group">
                     Users
                     {UsersData.map(user => (
+
                         <UserItem key={user.id}
                                   user={{name: user.name, surname: user.surname, username: user.username, id: user.id}}/>
                     ))}
@@ -27,14 +26,14 @@ class UserList extends React.Component<any>{
                     <button >Add User</button>
             </Link>
             </div>
-
         );
     }
 }
 
+export default UserList;
 
-
-export default UserList
+//
+// export default UserList
 
 // const UserList = () => {
 //     function ShowForm() {

@@ -1,11 +1,11 @@
 import React from "react";
 import {User} from '../interfaces/user';
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 interface Props {
    user:User;
 }
-
 
 
 class UserItem extends React.Component<any> {
